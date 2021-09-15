@@ -1,1 +1,0 @@
-# comp472-miniproject1
