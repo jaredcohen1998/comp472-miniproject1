@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sklearn.datasets
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
 
 # Task 1 #2
 def plot_bar_graph(basepath, list_of_files):
@@ -38,19 +39,29 @@ def load_bbc_files(basepath):
 
 # Task 1 #4
 def pre_process_data_set(list_of_files):
-    print("TODO")
+    #print("TODO")
 
-    #vectorizer = CountVectorizer()
-    #X = vectorizer.fit_transform(list_of_files['data'])
-    #print(vectorizer.get_feature_names())
-    #print(X.toarray())
+    vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(list_of_files)
+
+    return (vectorizer.get_feature_names(), X)
+
+# Task 1 #5
+def split_dataset(X, testsize, randomstate):
+    X_train, X_test = train_test_split(X, test_size=testsize, random_state=randomstate)
+    return (X_train, X_test)
 
 def main():
     basepath = "data\\BBC"
     list_of_files = load_bbc_files(basepath)
 
     plot_bar_graph(basepath, list_of_files)
-    pre_process_data_set(list_of_files)
+    words, word_frequency = pre_process_data_set(list_of_files)
+
+    #print(words)
+    #print(word_frequency.toarray())
+
+    train, test = split_dataset(word_frequency.toarray(), 0.20, None)
     
 if __name__ == "__main__":
     main()
