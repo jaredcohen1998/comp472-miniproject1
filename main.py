@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 
 # Task 1 #2
 def plot_bar_graph(basepath, list_of_files):
+    print("Plotting bar graph...")
     target_names = list_of_files['target_names']
     target_freq = [0] * len(target_names)
 
@@ -24,11 +25,16 @@ def plot_bar_graph(basepath, list_of_files):
     numberofarticles = list(data.values())
     
     fig = plt.figure(figsize=(10, 5))
-    plt.bar(classes, numberofarticles, color='maroon', width=0.4)
+    plot = plt.bar(classes, numberofarticles, color='maroon', width=0.4)
     
+    # Taken from https://www.pythonprogramming.in/how-to-plot-a-very-simple-bar-chart-using-matplotlib.html
+    for value in plot:
+        height = value.get_height()
+        plt.text(value.get_x() + value.get_width()/2,1.002*height,'%d' % int(height), ha='center', va='bottom')
+
+    plt.title("Distribution of the instances in each class")
     plt.xlabel("Classes")
     plt.ylabel("Number of articles")
-    plt.title("Distribution of the instances in each class")
     
     fig.savefig('BBC-distribution.pdf', dpi=fig.dpi)
 
@@ -39,8 +45,6 @@ def load_bbc_files(basepath):
 
 # Task 1 #4
 def pre_process_data_set(list_of_files):
-    #print("TODO")
-
     vectorizer = CountVectorizer()
     X = vectorizer.fit_transform(list_of_files)
 
