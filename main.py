@@ -48,7 +48,7 @@ def pre_process_data_set(list_of_files):
     vectorizer = CountVectorizer()
     X = vectorizer.fit_transform(list_of_files)
 
-    return (vectorizer.get_feature_names(), X)
+    return (vectorizer.get_feature_names_out(), X)
 
 # Task 1 #5
 def split_dataset(X, testsize, randomstate):
@@ -62,8 +62,8 @@ def main():
     plot_bar_graph(basepath, list_of_files)
     words, word_frequency = pre_process_data_set(list_of_files)
 
-    #print(words)
-    #print(word_frequency.toarray())
+    print(words)
+    print(word_frequency.toarray())
 
     train, test = split_dataset(word_frequency.toarray(), 0.20, None)
     
