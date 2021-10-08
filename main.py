@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import sklearn.datasets
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
-
+from sklearn.naive_bayes import MultinomialNB
 # Task 1 #2
 def plot_bar_graph(basepath, list_of_files):
     print("Plotting bar graph...")
@@ -35,7 +35,7 @@ def plot_bar_graph(basepath, list_of_files):
     plt.title("Distribution of the instances in each class")
     plt.xlabel("Classes")
     plt.ylabel("Number of articles")
-    
+    plt.show()
     fig.savefig('BBC-distribution.pdf', dpi=fig.dpi)
 
 # Task 1 #3
@@ -46,26 +46,32 @@ def load_bbc_files(basepath):
 # Task 1 #4
 def pre_process_data_set(list_of_files):
     vectorizer = CountVectorizer()
-    X = vectorizer.fit_transform(list_of_files)
+    X = vectorizer.fit_transform(list_of_files['data'])
 
     return (vectorizer.get_feature_names_out(), X)
 
 # Task 1 #5
-def split_dataset(X, testsize, randomstate):
+def split_dataset(X, y, testsize, randomstate):
     X_train, X_test = train_test_split(X, test_size=testsize, random_state=randomstate)
-    return (X_train, X_test)
+    y_train,y_test = train_test_split(y, test_size=testsize, random_state=randomstate)
+    return (X_train, X_test, y_train, y_test)
 
 def main():
     basepath = "data\\BBC"
     list_of_files = load_bbc_files(basepath)
-
+    print(list_of_files['target'].shape)
     plot_bar_graph(basepath, list_of_files)
     words, word_frequency = pre_process_data_set(list_of_files)
 
     print(words)
     print(word_frequency.toarray())
 
-    train, test = split_dataset(word_frequency.toarray(), 0.20, None)
-    
+    train, test, y_train, y_test = split_dataset(word_frequency.toarray(), list_of_files['target'], 0.20, None)
+    print(train)
+    print(train.shape)
+    print(test.shape)
+    nb = MultinomialNB()
+    nb.fit(train, y_train)
+   # predicted = nb.predict(test)
 if __name__ == "__main__":
     main()
