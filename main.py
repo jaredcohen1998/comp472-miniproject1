@@ -89,5 +89,8 @@ def main():
     print(classification_report(y_test, predicted, target_names=list_of_files['target_names']))
     print(f1_score(y_test, predicted, average=None))
     print(accuracy_score(y_test, predicted))
+    countArray = [0, 0, 0, 0, 0]
+    for x in y_train:
+        if(x == 'business') countArray[0]++
 if __name__ == "__main__":
     main()
