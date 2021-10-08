@@ -4,6 +4,12 @@ import sklearn.datasets
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.metrics import f1_score
+from sklearn.metrics import accuracy_score
+
+
 # Task 1 #2
 def plot_bar_graph(basepath, list_of_files):
     print("Plotting bar graph...")
@@ -52,8 +58,8 @@ def pre_process_data_set(list_of_files):
 
 # Task 1 #5
 def split_dataset(X, y, testsize, randomstate):
-    X_train, X_test = train_test_split(X, test_size=testsize, random_state=randomstate)
-    y_train,y_test = train_test_split(y, test_size=testsize, random_state=randomstate)
+    X_train, X_test ,y_train,y_test= train_test_split(X, y, test_size=testsize, random_state=randomstate)
+    #y_train,y_test = train_test_split(y, test_size=testsize, random_state=randomstate)
     return (X_train, X_test, y_train, y_test)
 
 def main():
@@ -70,8 +76,18 @@ def main():
     print(train)
     print(train.shape)
     print(test.shape)
+    testData = [1, 2, 3, 4, 5 ,6, 7, 8, 9, 10]
+    testData2 = [1, 2, 3, 4, 5 ,6, 7, 8, 9, 10]
+    train1, test1, train2, test2 = split_dataset(testData, testData2, 0.20, None)
+    print(train1)
+    print(train2)
     nb = MultinomialNB()
     nb.fit(train, y_train)
-   # predicted = nb.predict(test)
+    predicted = nb.predict(test)
+    print(list_of_files['target_names'])
+    print(confusion_matrix(y_test, predicted))
+    print(classification_report(y_test, predicted, target_names=list_of_files['target_names']))
+    print(f1_score(y_test, predicted, average=None))
+    print(accuracy_score(y_test, predicted))
 if __name__ == "__main__":
     main()
