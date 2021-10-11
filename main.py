@@ -72,71 +72,44 @@ def split_dataset(X, y, testsize, randomstate):
 # Task 1 #6
 
 
-def nb_multinomial_classify(X_train, y_train, X_test):
-    nb = MultinomialNB()
+def nb_multinomial_classify(X_train, y_train, smoothing=1):
+    nb = MultinomialNB(alpha=smoothing)
     nb.fit(X_train, y_train)
-    return nb.predict(X_test)
+    return nb
+
+# Task 1 #7
 
 
-def count_zero_freq_words(c_words):
-    count = 0
-    for w in c_words:
-        if (w == 0):
-            count += 1
-    return count
+def generate_performance_report(file_name, try_num, y_test, predicted, mode="w"):
+    f = open(file_name, mode)
+    print("Writing performance report...")
 
+    if (mode == "a"):
+        f.write("\n\n\n")
 
-def main():
-    basepath = "data\\BBC"
-    list_of_files = load_bbc_files(basepath)
-    plot_bar_graph(basepath, list_of_files)
-    words, word_frequency = pre_process_data_set(list_of_files)
-
-    # print("Words ", len(words))
-    # print("Word freq ", len(word_frequency.toarray()))
-
-    print("Target Names", list_of_files['target_names'])
-    X_train, X_test, y_train, y_test = split_dataset(
-        word_frequency.toarray(), list_of_files['target'], 0.20, None)
-    predicted = nb_multinomial_classify(X_train, y_train, X_test)
-
-    # Task 1 #7
     # a
-    print("---------- MultinomialNB default values, try 1 ----------\n")
+    f.write(
+        "---------- MultinomialNB default values, try %d ----------\n" % try_num)
 
     # b
-    print("Confusion Matrix \n\n{0}\n\n".format(
+    f.write("Confusion Matrix \n\n{0}\n\n".format(
         confusion_matrix(y_test, predicted)))
     # c
-    print("Classification Report \n\n{0}\n\n".format(classification_report(y_test, predicted,
-          target_names=list_of_files['target_names'])))
+    f.write("Classification Report \n\n{0}\n\n".format(classification_report(y_test, predicted,
+                                                                             target_names=list_of_files['target_names'])))
 
     # d
-    print("F1 Score \n\n{0}\n\n".format(list(
+    f.write("F1 Score \n\n{0}\n\n".format(list(
         zip(list_of_files["target_names"], f1_score(y_test, predicted, average=None)))))
-    print("Accuracy Score \n\n{0}\n\n".format(
+    f.write("Accuracy Score: {0}\n\n".format(
         accuracy_score(y_test, predicted)))
 
     # e
-    priors = np.zeros(5)
-    for x in list_of_files['target']:
-        if (x == 0):
-            priors[0] += 1
-        if (x == 1):
-            priors[1] += 1
-        if (x == 2):
-            priors[2] += 1
-        if (x == 3):
-            priors[3] += 1
-        if (x == 4):
-            priors[4] += 1
-
-    priors /= len(list_of_files['target'])
-    print("Prior probability of each class: {0}".format(
-        list(zip(list_of_files['target_names'], priors))))
+    f.write("Prior probability of each class: {0}\n\n".format(
+        list(zip(list_of_files['target_names'], np.exp(mnb.class_log_prior_)))))
 
     # f
-    print("Vocabulary size: {0}".format(len(words)))
+    f.write("Vocabulary size: {0}\n\n".format(len(words)))
 
     # g
     word_count = np.zeros(5, int)
@@ -152,11 +125,11 @@ def main():
         if (list_of_files['target'][i] == 4):
             word_count[4] += sum(w)
 
-    print(
-        "Word-tokens in each class: {0}".format(list(zip(list_of_files['target_names'], word_count))))
+    f.write(
+        "Word-tokens in each class: {0}\n\n".format(list(zip(list_of_files['target_names'], word_count))))
 
     # h
-    print(sum(word_count))
+    f.write("Word-tokens in entire corpus: {0}\n\n".format(sum(word_count)))
 
     # Summing word frequencies per class
     business_freq_array = np.zeros(len(words))
@@ -187,30 +160,89 @@ def main():
         politics_zero_freq_count + sport_zero_freq_count + tech_zero_freq_count
 
     # Calculating % of zero-freq words in each class
-    business_zero_freq_percent = business_zero_freq_count/word_count[0]
-    entertainment_zero_freq_percent = entertainment_zero_freq_count / \
-        word_count[1]
-    politics_zero_freq_percent = politics_zero_freq_count/word_count[2]
-    sport_zero_freq_percent = sport_zero_freq_count/word_count[3]
-    tech_zero_freq_percent = tech_zero_freq_count/word_count[4]
+    business_zero_freq_percent = (business_zero_freq_count/word_count[0])*100
+    entertainment_zero_freq_percent = (entertainment_zero_freq_count /
+                                       word_count[1])*100
+    politics_zero_freq_percent = (politics_zero_freq_count/word_count[2])*100
+    sport_zero_freq_percent = (sport_zero_freq_count/word_count[3])*100
+    tech_zero_freq_percent = (tech_zero_freq_count/word_count[4])*100
     total_zero_freq_percent = business_zero_freq_percent + entertainment_zero_freq_percent + \
         politics_zero_freq_percent + sport_zero_freq_percent + tech_zero_freq_percent
 
     # i
-    print(
-        "# of zero-frequency words in Business: {:d} -- {:0.4f} percent".format(business_zero_freq_count, business_zero_freq_percent))
-    print(
-        "# of zero-frequency words in Entertainment: {:d} -- {:0.4f} percent".format(entertainment_zero_freq_count, entertainment_zero_freq_percent))
-    print(
-        "# of zero-frequency words in Politics: {:d} -- {:0.4f} percent".format(politics_zero_freq_count, politics_zero_freq_percent))
-    print(
-        "# of zero-frequency words in Sport: {:d} -- {:0.4f} percent".format(sport_zero_freq_count, sport_zero_freq_percent))
-    print(
-        "# of zero-frequency words in Tech: {:d} -- {:0.4f} percent".format(tech_zero_freq_count, tech_zero_freq_percent))
+    f.write(
+        "# of zero-frequency words in Business: {:d} -- {:0.2f} percent".format(business_zero_freq_count, business_zero_freq_percent))
+    f.write(
+        "# of zero-frequency words in Entertainment: {:d} -- {:0.2f} percent".format(entertainment_zero_freq_count, entertainment_zero_freq_percent))
+    f.write(
+        "# of zero-frequency words in Politics: {:d} -- {:0.2f} percent".format(politics_zero_freq_count, politics_zero_freq_percent))
+    f.write(
+        "# of zero-frequency words in Sport: {:d} -- {:0.2f} percent".format(sport_zero_freq_count, sport_zero_freq_percent))
+    f.write(
+        "# of zero-frequency words in Tech: {:d} -- {:0.2f} percent".format(tech_zero_freq_count, tech_zero_freq_percent))
 
     # j
-    print(
-        "# of zero-frequency words in entire corpus: {:d} -- {:0.4f} percent".format(total_zero_freq_count, total_zero_freq_percent))
+    f.write(
+        "# of zero-frequency words in entire corpus: {:d} -- {:0.2f} percent\n\n".format(total_zero_freq_count, total_zero_freq_percent))
+
+    # k
+    fav_word_1 = 29418
+    fav_word_2 = 29420
+    f.write("The log probability of {0} is {1} and of {2} is {3}\n\n".format(
+        words[fav_word_1], list(zip(list_of_files['target_names'], feature_log_probability(mnb.feature_log_prob_, fav_word_1))), words[fav_word_2], list(zip(list_of_files['target_names'], feature_log_probability(mnb.feature_log_prob_, fav_word_2)))))
+
+    f.close()
+
+
+def count_zero_freq_words(c_words):
+    count = 0
+    for w in c_words:
+        if (w == 0):
+            count += 1
+    return count
+
+
+def feature_log_probability(mnb_log_vector, feature_indx):
+    exp_sum = np.zeros(
+        len(list_of_files['target_names'])) + mnb.class_log_prior_
+    for i, x in enumerate(mnb_log_vector):
+        exp_sum[i] += x[feature_indx]
+    return exp_sum
+
+
+def main():
+    # global vars
+    global mnb
+    global list_of_files
+    global words
+    global word_frequency
+
+    basepath = "data\\BBC"
+    # Loading the corpus files. Part 3 of task 1
+    list_of_files = load_bbc_files(basepath)
+
+    # Pre-processing the dataset. Part 4 of task 1
+    words, word_frequency = pre_process_data_set(list_of_files)
+
+    # Plotting the bar graph. Part 2 of task 1
+    plot_bar_graph(basepath, list_of_files)
+
+    # Splitting the dataset 80:20. Part 5 of task 1
+    X_train, X_test, y_train, y_test = split_dataset(
+        word_frequency.toarray(), list_of_files['target'], 0.20, None)
+
+    # Train a Multinomial NB classifier on the training set and test it on the test set. Part 6 of task 1
+    mnb = nb_multinomial_classify(X_train, y_train)
+    predicted = mnb.predict(X_test)
+
+    # Generate bbc performance report. Part 7 of task 1
+    generate_performance_report('bbc-performance.txt', 1, y_test, predicted)
+
+    # Repeating stpes 6 and 7. Part 8 of task 1
+    mnb = nb_multinomial_classify(X_train, y_train)
+    predicted = mnb.predict(X_test)
+    generate_performance_report(
+        'bbc-performance.txt', 2, y_test, predicted, "a")
 
 
 if __name__ == "__main__":

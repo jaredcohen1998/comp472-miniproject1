@@ -1,0 +1,87 @@
+---------- MultinomialNB default values, try 1 ----------
+Confusion Matrix 
+
+[[109   2   4   0   3]
+ [  1  76   2   0   5]
+ [  2   2  76   0   0]
+ [  0   0   1  96   0]
+ [  0   1   0   0  65]]
+
+Classification Report 
+
+               precision    recall  f1-score   support
+
+     business       0.97      0.92      0.95       118
+entertainment       0.94      0.90      0.92        84
+     politics       0.92      0.95      0.93        80
+        sport       1.00      0.99      0.99        97
+         tech       0.89      0.98      0.94        66
+
+     accuracy                           0.95       445
+    macro avg       0.94      0.95      0.95       445
+ weighted avg       0.95      0.95      0.95       445
+
+
+F1 Score 
+
+[('business', 0.9478260869565216), ('entertainment', 0.9212121212121211), ('politics', 0.9325153374233127), ('sport', 0.9948186528497409), ('tech', 0.935251798561151)]
+
+Accuracy Score: 0.9483146067415731
+
+Prior probability of each class: [('business', 0.2202247191011235), ('entertainment', 0.1696629213483146), ('politics', 0.18932584269662917), ('sport', 0.23258426966292128), ('tech', 0.18820224719101117)]
+
+Vocabulary size: 29421
+
+Word-tokens in each class: [('business', 164663), ('entertainment', 124893), ('politics', 185208), ('sport', 162953), ('tech', 198640)]
+
+Word-tokens in entire corpus: 836357
+
+# of zero-frequency words in Business: 17538 -- 10.65 percent# of zero-frequency words in Entertainment: 17746 -- 14.21 percent# of zero-frequency words in Politics: 18201 -- 9.83 percent# of zero-frequency words in Sport: 18850 -- 11.57 percent# of zero-frequency words in Tech: 17323 -- 8.72 percent# of zero-frequency words in entire corpus: 89658 -- 54.98 percent
+
+The log probability of zutons is [('business', -13.474978233185597), ('entertainment', -12.858910944937794), ('politics', -13.757508758377288), ('sport', -13.445081345842652), ('tech', -13.848687729927374)] and of zvyagintsev is [('business', -13.474978233185597), ('entertainment', -12.45344583682963), ('politics', -13.757508758377288), ('sport', -13.445081345842652), ('tech', -13.848687729927374)]
+
+
+
+
+---------- MultinomialNB default values, try 2 ----------
+Confusion Matrix 
+
+[[109   2   4   0   3]
+ [  1  76   2   0   5]
+ [  2   2  76   0   0]
+ [  0   0   1  96   0]
+ [  0   1   0   0  65]]
+
+Classification Report 
+
+               precision    recall  f1-score   support
+
+     business       0.97      0.92      0.95       118
+entertainment       0.94      0.90      0.92        84
+     politics       0.92      0.95      0.93        80
+        sport       1.00      0.99      0.99        97
+         tech       0.89      0.98      0.94        66
+
+     accuracy                           0.95       445
+    macro avg       0.94      0.95      0.95       445
+ weighted avg       0.95      0.95      0.95       445
+
+
+F1 Score 
+
+[('business', 0.9478260869565216), ('entertainment', 0.9212121212121211), ('politics', 0.9325153374233127), ('sport', 0.9948186528497409), ('tech', 0.935251798561151)]
+
+Accuracy Score: 0.9483146067415731
+
+Prior probability of each class: [('business', 0.2202247191011235), ('entertainment', 0.1696629213483146), ('politics', 0.18932584269662917), ('sport', 0.23258426966292128), ('tech', 0.18820224719101117)]
+
+Vocabulary size: 29421
+
+Word-tokens in each class: [('business', 164663), ('entertainment', 124893), ('politics', 185208), ('sport', 162953), ('tech', 198640)]
+
+Word-tokens in entire corpus: 836357
+
+# of zero-frequency words in Business: 17538 -- 10.65 percent# of zero-frequency words in Entertainment: 17746 -- 14.21 percent# of zero-frequency words in Politics: 18201 -- 9.83 percent# of zero-frequency words in Sport: 18850 -- 11.57 percent# of zero-frequency words in Tech: 17323 -- 8.72 percent# of zero-frequency words in entire corpus: 89658 -- 54.98 percent
+
+The log probability of zutons is [('business', -13.474978233185597), ('entertainment', -12.858910944937794), ('politics', -13.757508758377288), ('sport', -13.445081345842652), ('tech', -13.848687729927374)] and of zvyagintsev is [('business', -13.474978233185597), ('entertainment', -12.45344583682963), ('politics', -13.757508758377288), ('sport', -13.445081345842652), ('tech', -13.848687729927374)]
+
