@@ -82,7 +82,7 @@ def nb_multinomial_classify(X_train, y_train, smoothing=1):
 
 def generate_performance_report(file_name, try_num, y_test, predicted, mode="w"):
     f = open(file_name, mode)
-    print("Writing performance report...")
+    print("Writing performance report %d..." % try_num)
 
     if (mode == "a"):
         f.write("\n\n\n")
@@ -99,7 +99,7 @@ def generate_performance_report(file_name, try_num, y_test, predicted, mode="w")
                                                                              target_names=list_of_files['target_names'])))
 
     # d
-    f.write("F1 Score \n\n{0}\n\n".format(list(
+    f.write("F1 Score: {0}\n\n".format(list(
         zip(list_of_files["target_names"], f1_score(y_test, predicted, average=None)))))
     f.write("Accuracy Score: {0}\n\n".format(
         accuracy_score(y_test, predicted)))
@@ -243,6 +243,18 @@ def main():
     predicted = mnb.predict(X_test)
     generate_performance_report(
         'bbc-performance.txt', 2, y_test, predicted, "a")
+
+    # Repeating stpes 6 and 7, but changing the smoothing value to 0.0001. Part 9 of task 1
+    mnb = nb_multinomial_classify(X_train, y_train, 0.0001)
+    predicted = mnb.predict(X_test)
+    generate_performance_report(
+        'bbc-performance.txt', 3, y_test, predicted, "a")
+
+    # Repeating stpes 6 and 7, but changing the smoothing value to 0.9. Part 10 of task 1
+    mnb = nb_multinomial_classify(X_train, y_train, 0.9)
+    predicted = mnb.predict(X_test)
+    generate_performance_report(
+        'bbc-performance.txt', 4, y_test, predicted, "a")
 
 
 if __name__ == "__main__":
