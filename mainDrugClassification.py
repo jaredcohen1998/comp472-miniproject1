@@ -5,7 +5,7 @@
 import pandas
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
@@ -74,8 +74,8 @@ X_train, X_test, y_train, y_test =  split_dataset(features, classes, None)
 
 
 #a
-print("starting multinomialNB")
-nb = MultinomialNB()
+print("starting GaussianNB")
+nb = GaussianNB()
 nb.fit(X_train, y_train)
 predicted = nb.predict(X_test)
 print(confusion_matrix(y_test, predicted))
@@ -93,7 +93,7 @@ print(accuracy_score(y_test, decisionTreePredictions))
 #c TOP-DT?
 print("Starting top decision Tree")
 param_grid = {'criterion' : ['gini', 'entropy'], 'max_depth' : [3, 4], 'min_samples_split' : [3, 4, 5]}
-clf = GridSearchCV(DecisionTreeClassifier(),param_grid=param_grid)
+clf = GridSearchCV(DecisionTreeClassifier(),param_grid=param_grid, scoring='f1_macro') #using f1 for unbalanced classes.
 clf = clf.fit(X_train, y_train)
 print(clf.best_params_)
 topDTPredictions = clf.predict(X_test)
@@ -122,7 +122,7 @@ print(accuracy_score(y_test, MLPPredictions))
 #f top-MLP
 print("Starting top MLP")
 param_grid = {'activation' : ['logistic', 'tanh', 'relu', 'identity'], 'hidden_layer_sizes' : [(30, 50,), (10,10,10,)], 'solver' : ['adam', 'sgd']}
-clf = GridSearchCV(MLPClassifier(),param_grid=param_grid)
+clf = GridSearchCV(MLPClassifier(),param_grid=param_grid, scoring='f1_macro') #using f1 for unbalanced classes.
 clf = clf.fit(X_train, y_train)
 print(clf.best_params_)
 topMLPPredictions = clf.predict(X_test)
