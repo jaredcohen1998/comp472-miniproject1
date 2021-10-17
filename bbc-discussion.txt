@@ -1,0 +1,11 @@
+11.
+
+A) F1-score is the evaluation metric we want to use since precision and recall are both important. 
+Precision is important because we want to be certain about our target class predictions, and recall
+is important because we want to maximize our target class predictions. The importance of precision and 
+recall can vary based on the application of the NB text classifier.
+
+B) The performance of each test varied slightly because we added a different smoothing value to the NB classification,
+so word frequencies in the vocabulary varied from test to test. Recall and F1 for each class remained mostly
+the same throughout the tests, but precision saw the most variation. This could be caused by low-to-zero frequency
+words being given more weight, and therefore affect the number of false positives in the test set.

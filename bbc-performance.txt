@@ -1,32 +1,34 @@
 ---------- MultinomialNB default values, try 1 ----------
 Confusion Matrix 
 
-[[100   0   2   0   0]
- [  0  57   1   0   2]
- [  2   0  95   0   0]
- [  0   0   0 107   0]
- [  0   2   0   0  77]]
+[[103   0   4   0   1]
+ [  0  75   1   0   1]
+ [  1   0  85   0   0]
+ [  0   0   0 100   0]
+ [  0   0   0   0  74]]
 
 Classification Report 
 
                precision    recall  f1-score   support
 
-     business       0.98      0.98      0.98       102
-entertainment       0.97      0.95      0.96        60
-     politics       0.97      0.98      0.97        97
-        sport       1.00      1.00      1.00       107
-         tech       0.97      0.97      0.97        79
+     business       0.99      0.95      0.97       108
+entertainment       1.00      0.97      0.99        77
+     politics       0.94      0.99      0.97        86
+        sport       1.00      1.00      1.00       100
+         tech       0.97      1.00      0.99        74
 
      accuracy                           0.98       445
     macro avg       0.98      0.98      0.98       445
  weighted avg       0.98      0.98      0.98       445
 
 
-F1 Score: [('business', 0.9803921568627451), ('entertainment', 0.957983193277311), ('politics', 0.9743589743589743), ('sport', 1.0), ('tech', 0.9746835443037974)]
+Accuracy Score: 0.9820224719101124
 
-Accuracy Score: 0.9797752808988764
+Macro-average F1 Score: 0.9822231952092924
 
-Prior probability of each class: [('business', 0.22921348314606735), ('entertainment', 0.18314606741573033), ('politics', 0.17977528089887634), ('sport', 0.22696629213483152), ('tech', 0.1808988764044944)]
+Weighted-average F1 Score: 0.9820488842318953
+
+Prior probability of each class: [('business', 0.22584269662921347), ('entertainment', 0.17359550561797757), ('politics', 0.18595505617977526), ('sport', 0.23089887640449427), ('tech', 0.18370786516853932)]
 
 Vocabulary size: 29421
 
@@ -36,7 +38,7 @@ Word-tokens in entire corpus: 836357
 
 # of zero-frequency words in Business: 17538 -- 10.65 percent# of zero-frequency words in Entertainment: 17746 -- 14.21 percent# of zero-frequency words in Politics: 18201 -- 9.83 percent# of zero-frequency words in Sport: 18850 -- 11.57 percent# of zero-frequency words in Tech: 17323 -- 8.72 percent# of zero-frequency words in entire corpus: 89658 -- 54.98 percent
 
-The log probability of zutons is [('business', -13.46966222832888), ('entertainment', -12.826167042663641), ('politics', -13.720609800585148), ('sport', -13.4627341575777), ('tech', -13.858445994610193)] and of zvyagintsev is [('business', -13.46966222832888), ('entertainment', -12.826167042663641), ('politics', -13.720609800585148), ('sport', -13.4627341575777), ('tech', -13.858445994610193)]
+The log probability of zutons is [('business', -13.464651504719747), ('entertainment', -12.815154766401204), ('politics', -13.763235767597383), ('sport', -13.436543375096642), ('tech', -13.858830655313863)] and of zvyagintsev is [('business', -13.464651504719747), ('entertainment', -13.508301946961149), ('politics', -13.763235767597383), ('sport', -13.436543375096642), ('tech', -13.858830655313863)]
 
 
 
@@ -44,32 +46,34 @@ The log probability of zutons is [('business', -13.46966222832888), ('entertainm
 ---------- MultinomialNB default values, try 2 ----------
 Confusion Matrix 
 
-[[100   0   2   0   0]
- [  0  57   1   0   2]
- [  2   0  95   0   0]
- [  0   0   0 107   0]
- [  0   2   0   0  77]]
+[[103   0   4   0   1]
+ [  0  75   1   0   1]
+ [  1   0  85   0   0]
+ [  0   0   0 100   0]
+ [  0   0   0   0  74]]
 
 Classification Report 
 
                precision    recall  f1-score   support
 
-     business       0.98      0.98      0.98       102
-entertainment       0.97      0.95      0.96        60
-     politics       0.97      0.98      0.97        97
-        sport       1.00      1.00      1.00       107
-         tech       0.97      0.97      0.97        79
+     business       0.99      0.95      0.97       108
+entertainment       1.00      0.97      0.99        77
+     politics       0.94      0.99      0.97        86
+        sport       1.00      1.00      1.00       100
+         tech       0.97      1.00      0.99        74
 
      accuracy                           0.98       445
     macro avg       0.98      0.98      0.98       445
  weighted avg       0.98      0.98      0.98       445
 
 
-F1 Score: [('business', 0.9803921568627451), ('entertainment', 0.957983193277311), ('politics', 0.9743589743589743), ('sport', 1.0), ('tech', 0.9746835443037974)]
+Accuracy Score: 0.9820224719101124
 
-Accuracy Score: 0.9797752808988764
+Macro-average F1 Score: 0.9822231952092924
 
-Prior probability of each class: [('business', 0.22921348314606735), ('entertainment', 0.18314606741573033), ('politics', 0.17977528089887634), ('sport', 0.22696629213483152), ('tech', 0.1808988764044944)]
+Weighted-average F1 Score: 0.9820488842318953
+
+Prior probability of each class: [('business', 0.22584269662921347), ('entertainment', 0.17359550561797757), ('politics', 0.18595505617977526), ('sport', 0.23089887640449427), ('tech', 0.18370786516853932)]
 
 Vocabulary size: 29421
 
@@ -79,7 +83,7 @@ Word-tokens in entire corpus: 836357
 
 # of zero-frequency words in Business: 17538 -- 10.65 percent# of zero-frequency words in Entertainment: 17746 -- 14.21 percent# of zero-frequency words in Politics: 18201 -- 9.83 percent# of zero-frequency words in Sport: 18850 -- 11.57 percent# of zero-frequency words in Tech: 17323 -- 8.72 percent# of zero-frequency words in entire corpus: 89658 -- 54.98 percent
 
-The log probability of zutons is [('business', -13.46966222832888), ('entertainment', -12.826167042663641), ('politics', -13.720609800585148), ('sport', -13.4627341575777), ('tech', -13.858445994610193)] and of zvyagintsev is [('business', -13.46966222832888), ('entertainment', -12.826167042663641), ('politics', -13.720609800585148), ('sport', -13.4627341575777), ('tech', -13.858445994610193)]
+The log probability of zutons is [('business', -13.464651504719747), ('entertainment', -12.815154766401204), ('politics', -13.763235767597383), ('sport', -13.436543375096642), ('tech', -13.858830655313863)] and of zvyagintsev is [('business', -13.464651504719747), ('entertainment', -13.508301946961149), ('politics', -13.763235767597383), ('sport', -13.436543375096642), ('tech', -13.858830655313863)]
 
 
 
@@ -87,32 +91,34 @@ The log probability of zutons is [('business', -13.46966222832888), ('entertainm
 ---------- MultinomialNB default values, try 3 ----------
 Confusion Matrix 
 
-[[ 98   1   2   0   1]
- [  0  58   1   0   1]
- [  2   0  95   0   0]
- [  0   0   0 107   0]
- [  0   1   0   0  78]]
+[[102   0   3   0   3]
+ [  0  76   0   0   1]
+ [  1   0  85   0   0]
+ [  0   0   0 100   0]
+ [  0   0   0   0  74]]
 
 Classification Report 
 
                precision    recall  f1-score   support
 
-     business       0.98      0.96      0.97       102
-entertainment       0.97      0.97      0.97        60
-     politics       0.97      0.98      0.97        97
-        sport       1.00      1.00      1.00       107
-         tech       0.97      0.99      0.98        79
+     business       0.99      0.94      0.97       108
+entertainment       1.00      0.99      0.99        77
+     politics       0.97      0.99      0.98        86
+        sport       1.00      1.00      1.00       100
+         tech       0.95      1.00      0.97        74
 
      accuracy                           0.98       445
     macro avg       0.98      0.98      0.98       445
  weighted avg       0.98      0.98      0.98       445
 
 
-F1 Score: [('business', 0.9702970297029702), ('entertainment', 0.9666666666666667), ('politics', 0.9743589743589743), ('sport', 1.0), ('tech', 0.9811320754716981)]
+Accuracy Score: 0.9820224719101124
 
-Accuracy Score: 0.9797752808988764
+Macro-average F1 Score: 0.9821968803233068
 
-Prior probability of each class: [('business', 0.22921348314606735), ('entertainment', 0.18314606741573033), ('politics', 0.17977528089887634), ('sport', 0.22696629213483152), ('tech', 0.1808988764044944)]
+Weighted-average F1 Score: 0.9819986825218263
+
+Prior probability of each class: [('business', 0.22584269662921347), ('entertainment', 0.17359550561797757), ('politics', 0.18595505617977526), ('sport', 0.23089887640449427), ('tech', 0.18370786516853932)]
 
 Vocabulary size: 29421
 
@@ -122,7 +128,7 @@ Word-tokens in entire corpus: 836357
 
 # of zero-frequency words in Business: 17538 -- 10.65 percent# of zero-frequency words in Entertainment: 17746 -- 14.21 percent# of zero-frequency words in Politics: 18201 -- 9.83 percent# of zero-frequency words in Sport: 18850 -- 11.57 percent# of zero-frequency words in Tech: 17323 -- 8.72 percent# of zero-frequency words in entire corpus: 89658 -- 54.98 percent
 
-The log probability of zutons is [('business', -22.479875244442134), ('entertainment', -13.27586855117793), ('politics', -22.732586961561914), ('sport', -22.46919092936215), ('tech', -22.899435796108254)] and of zvyagintsev is [('business', -22.479875244442134), ('entertainment', -13.27586855117793), ('politics', -22.732586961561914), ('sport', -22.46919092936215), ('tech', -22.899435796108254)]
+The log probability of zutons is [('business', -22.470418245395557), ('entertainment', -13.246309264892938), ('politics', -22.791226990775918), ('sport', -22.440950622234546), ('tech', -22.90270781018591)] and of zvyagintsev is [('business', -22.470418245395557), ('entertainment', -22.456749631869453), ('politics', -22.791226990775918), ('sport', -22.440950622234546), ('tech', -22.90270781018591)]
 
 
 
@@ -130,32 +136,34 @@ The log probability of zutons is [('business', -22.479875244442134), ('entertain
 ---------- MultinomialNB default values, try 4 ----------
 Confusion Matrix 
 
-[[100   0   2   0   0]
- [  0  57   1   0   2]
- [  2   0  95   0   0]
- [  0   0   0 107   0]
- [  0   2   0   0  77]]
+[[103   0   4   0   1]
+ [  0  76   0   0   1]
+ [  1   0  85   0   0]
+ [  0   0   0 100   0]
+ [  0   0   0   0  74]]
 
 Classification Report 
 
                precision    recall  f1-score   support
 
-     business       0.98      0.98      0.98       102
-entertainment       0.97      0.95      0.96        60
-     politics       0.97      0.98      0.97        97
-        sport       1.00      1.00      1.00       107
-         tech       0.97      0.97      0.97        79
+     business       0.99      0.95      0.97       108
+entertainment       1.00      0.99      0.99        77
+     politics       0.96      0.99      0.97        86
+        sport       1.00      1.00      1.00       100
+         tech       0.97      1.00      0.99        74
 
      accuracy                           0.98       445
-    macro avg       0.98      0.98      0.98       445
+    macro avg       0.98      0.99      0.98       445
  weighted avg       0.98      0.98      0.98       445
 
 
-F1 Score: [('business', 0.9803921568627451), ('entertainment', 0.957983193277311), ('politics', 0.9743589743589743), ('sport', 1.0), ('tech', 0.9746835443037974)]
+Accuracy Score: 0.9842696629213483
 
-Accuracy Score: 0.9797752808988764
+Macro-average F1 Score: 0.9846514807180734
 
-Prior probability of each class: [('business', 0.22921348314606735), ('entertainment', 0.18314606741573033), ('politics', 0.17977528089887634), ('sport', 0.22696629213483152), ('tech', 0.1808988764044944)]
+Weighted-average F1 Score: 0.9842613904016838
+
+Prior probability of each class: [('business', 0.22584269662921347), ('entertainment', 0.17359550561797757), ('politics', 0.18595505617977526), ('sport', 0.23089887640449427), ('tech', 0.18370786516853932)]
 
 Vocabulary size: 29421
 
@@ -165,5 +173,5 @@ Word-tokens in entire corpus: 836357
 
 # of zero-frequency words in Business: 17538 -- 10.65 percent# of zero-frequency words in Entertainment: 17746 -- 14.21 percent# of zero-frequency words in Politics: 18201 -- 9.83 percent# of zero-frequency words in Sport: 18850 -- 11.57 percent# of zero-frequency words in Tech: 17323 -- 8.72 percent# of zero-frequency words in entire corpus: 89658 -- 54.98 percent
 
-The log probability of zutons is [('business', -13.556717047470254), ('entertainment', -12.855621481140547), ('politics', -13.80781183901), ('sport', -13.54947630715171), ('tech', -13.948103593803076)] and of zvyagintsev is [('business', -13.556717047470254), ('entertainment', -12.855621481140547), ('politics', -13.80781183901), ('sport', -13.54947630715171), ('tech', -13.948103593803076)]
+The log probability of zutons is [('business', -13.5513363331232), ('entertainment', -12.843135478295777), ('politics', -13.85178513133894), ('sport', -13.523115375873891), ('tech', -13.94873621833248)] and of zvyagintsev is [('business', -13.5513363331232), ('entertainment', -13.590349880125999), ('politics', -13.85178513133894), ('sport', -13.523115375873891), ('tech', -13.94873621833248)]
 

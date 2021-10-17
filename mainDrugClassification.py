@@ -10,9 +10,12 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
 from sklearn.metrics import accuracy_score
+
+
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
 
 def plot_bar_graph(data):
     print("Plotting bar graph...")
@@ -29,9 +32,9 @@ def plot_bar_graph(data):
         if (x == 'drugY'):
             dataFrequency[4] += 1
 
-
     fig = plt.figure(figsize=(10, 5))
-    plot = plt.bar(['drugA', 'drugB', 'drugC', 'drugX', 'drugY'], dataFrequency, color='maroon', width=0.4)
+    plot = plt.bar(['drugA', 'drugB', 'drugC', 'drugX', 'drugY'],
+                   dataFrequency, color='maroon', width=0.4)
 
     # Taken from https://www.pythonprogramming.in/how-to-plot-a-very-simple-bar-chart-using-matplotlib.html
    # for value in plot:
@@ -45,19 +48,23 @@ def plot_bar_graph(data):
     plt.show()
     fig.savefig('Drug-distribution.pdf', dpi=fig.dpi)
 
+
 def split_dataset(X, y, testsize, randomstate):
-    X_train, X_test ,y_train,y_test= train_test_split(X, y, test_size=testsize, random_state=randomstate)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=testsize, random_state=randomstate)
     #y_train,y_test = train_test_split(y, test_size=testsize, random_state=randomstate)
     return (X_train, X_test, y_train, y_test)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
-data = pandas.read_csv('drug200.csv')
+data = pandas.read_csv('data\\drug200.csv')
 
 plot_bar_graph(data)
 
-convertedData = pandas.get_dummies(data, columns=['Sex', 'Age', 'BP', 'Cholesterol'])
+convertedData = pandas.get_dummies(
+    data, columns=['Sex', 'Age', 'BP', 'Cholesterol'])
 
 
 classes = convertedData['Drug']
@@ -68,8 +75,8 @@ numpyClasses = classes.to_numpy()
 
 numpyFeatures = features.to_numpy()
 
-X_train, X_test, y_train, y_test =  split_dataset(numpyFeatures, numpyClasses, 0.2, None)
-
+X_train, X_test, y_train, y_test = split_dataset(
+    numpyFeatures, numpyClasses, 0.2, None)
 
 
 nb = MultinomialNB()

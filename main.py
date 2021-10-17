@@ -99,10 +99,12 @@ def generate_performance_report(file_name, try_num, y_test, predicted, mode="w")
                                                                              target_names=list_of_files['target_names'])))
 
     # d
-    f.write("F1 Score: {0}\n\n".format(list(
-        zip(list_of_files["target_names"], f1_score(y_test, predicted, average=None)))))
     f.write("Accuracy Score: {0}\n\n".format(
         accuracy_score(y_test, predicted)))
+    f.write(
+        "Macro-average F1 Score: {0}\n\n".format(f1_score(y_test, predicted, average='macro')))
+    f.write("Weighted-average F1 Score: {0}\n\n".format(
+        f1_score(y_test, predicted, average='weighted')))
 
     # e
     f.write("Prior probability of each class: {0}\n\n".format(
