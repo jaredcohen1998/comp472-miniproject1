@@ -19,4 +19,4 @@ For the drug dataset, the data was much more skewed compared to the BBC set. Dru
 
 3) In the case of team work, a description of the responsibilities and contributions of each team member
 
-A: We all worked on it an equal amount for both task 1 and task 2. We should hop in voice/video calls and all contribute together. In these calls, one person would share their screen and actually write the code to push to Github.
+A: We all worked on it an equal amount for both task 1 and task 2. We would hop in voice/video calls and all contribute together. In these calls, one person would share their screen and actually write the code to push to Github, while the other teamates would bounce ideas and discuss.
