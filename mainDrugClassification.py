@@ -87,7 +87,7 @@ X_train, X_test, y_train, y_test = split_dataset(features, classes, None)
 f = open("drug-performance.txt", "w")
 
 # a
-f.write("Starting GaussianNB")
+f.write("\n\n------------------Gaussian Naive Bayes Default Parameters---------------\n")
 nb = GaussianNB()
 nb.fit(X_train, y_train)
 predicted = nb.predict(X_test)
@@ -95,8 +95,6 @@ f.write("\n\nConfusion Matrix:\n%s" %
         confusion_matrix(y_test, predicted))
 f.write("\n\nClassification Report:\n%s" %
         classification_report(y_test, predicted, zero_division=0))
-f.write("\nMicro F1-Score: %f" %
-        f1_score(y_test, predicted, average='micro'))
 f.write("\nMacro F1-Score: %f" % f1_score(y_test, predicted, average='macro'))
 f.write("\nWeighted F1-Score: %f" %
         f1_score(y_test, predicted, average='weighted'))
@@ -117,7 +115,7 @@ for x in range(10):
     nbMacroList.append(f1_score(y_test, predicted, average='macro'))
     nbWeightedList.append(f1_score(y_test, predicted, average='weighted'))
 
-f.write("\n\n---------- Guassian NB ----------\n")
+f.write("\n\n---------- Guassian NB 10 Trials ----------\n")
 f.write("\nAverage accuracy for 10 Gaussian NB fits:" +
         str(statistics.mean(nbAccuracyList)))
 f.write("\nStandard deviation of accuracy for 10 Gaussian NB fits:" +
@@ -132,7 +130,7 @@ f.write("\nStandard deviation of weighted F1-Score for 10 Gaussian NB fits:" +
         str(statistics.stdev(nbWeightedList)))
 
 # b
-f.write("\nStarting decision tree")
+f.write("\n\n------------------Base Decision Tree Default Parameters---------------\n")
 clf = DecisionTreeClassifier(random_state=0)
 clf = clf.fit(X_train, y_train)
 decisionTreePredictions = clf.predict(X_test)
@@ -165,7 +163,7 @@ for x in range(10):
     DTWeightedList.append(
         f1_score(y_test, decisionTreePredictions, average='weighted'))
 
-f.write("\n\n---------- Base Decision Tree Classifier ----------\n")
+f.write("\n\n---------- Base Decision Tree 10 Trials ----------\n")
 f.write("\nAverage accuracy for 10 decision tree fits:" +
         str(statistics.mean(DTAccuracyList)))
 f.write("\nStandard deviation of accuracy for decision tree fits:" +
@@ -181,13 +179,14 @@ f.write("\nStandard deviation of weighted F1-Score for 10 decision tree fits:" +
 
 
 # c TOP-DT?
-f.write("\nStarting top decision Tree")
+#f.write("\n\n------------------Top Decision Tree: + " + str(clf.best_params_) + "---------------\n") (moved below to allow use of clf.best_params as input)
 param_grid = {'criterion': ['gini', 'entropy'],
               'max_depth': [3, 4], 'min_samples_split': [3, 4, 5]}
 # using f1 for unbalanced classes.
 clf = GridSearchCV(DecisionTreeClassifier(),
                    param_grid=param_grid, scoring='f1_macro')
 clf = clf.fit(X_train, y_train)
+f.write("\n\n------------------Top Decision Tree: " + str(clf.best_params_) + "---------------\n")
 f.write("\nBest Parameters: {}".format(clf.best_params_))
 bestTDT = DecisionTreeClassifier(random_state=0)
 bestTDT.set_params(**clf.best_params_)
@@ -219,7 +218,7 @@ for x in range(10):
     TDTWeightedList.append(
         f1_score(y_test, topTDTPredictions, average='weighted'))
 
-f.write("\n\n---------- Top Decision Tree Classifier ----------\n")
+f.write("\n\n---------- Top Decision Tree 10 Trials ----------\n")
 f.write("\nAverage accuracy for 10 best decision tree fits:" +
         str(statistics.mean(TDTAccuracyList)))
 f.write("\nStandard deviation of accuracy for best decision tree fits:" +
@@ -234,7 +233,7 @@ f.write("\nStandard deviation of weighted F1-Score for 10 best decision tree fit
         str(statistics.stdev(TDTWeightedList)))
 
 # d PER
-f.write("\nStarting perceptron")
+f.write("\n\n------------------ Perceptron Default Parameters ---------------\n")
 clf = Perceptron(random_state=0)
 clf = clf.fit(X_train, y_train)
 perceptronPredictions = clf.predict(X_test)
@@ -265,7 +264,7 @@ for x in range(10):
     PERWeightedList.append(
         f1_score(y_test, perceptronPredictions, average='weighted'))
 
-f.write("\n\n---------- Perceptron ----------\n")
+f.write("\n\n---------- Perceptron 10 trials ----------\n")
 f.write("\nAverage accuracy for 10  perceptron fits:" +
         str(statistics.mean(PERAccuracyList)))
 f.write("\nStandard deviation of accuracy for perceptron fits:" +
@@ -280,7 +279,7 @@ f.write("\nStandard deviation of weighted F1-Score for 10 perceptron fits:" +
         str(statistics.stdev(PERWeightedList)))
 
 # e base-MLP
-f.write("\nStarting MLP")
+f.write("\n\n------------------ Base-MLP:  {'activation': 'logistic', 'hidden_layer_sizes': (100,), 'solver': 'sgd', }---------------\n")
 clf = MLPClassifier(random_state=0, solver='sgd',
                     activation='logistic', max_iter=200).fit(X_train, y_train)
 MLPPredictions = clf.predict(X_test)
@@ -309,7 +308,7 @@ for x in range(10):
     MLPWeightedList.append(
         f1_score(y_test, MLPPredictions, average='weighted'))
 
-f.write("\n\n---------- Base MLP ----------\n")
+f.write("\n\n---------- Base MLP 10 trials ----------\n")
 f.write("\nAverage accuracy for 10  MLP fits:" +
         str(statistics.mean(MLPAccuracyList)))
 f.write("\nStandard deviation of accuracy for MLP fits:" +
@@ -325,13 +324,13 @@ f.write("\nStandard deviation of weighted F1-Score for 10  MLP fits:" +
 
 
 # f top-MLP
-f.write("\nStarting top MLP")
 param_grid = {'activation': ['logistic', 'tanh', 'relu', 'identity'], 'hidden_layer_sizes': [
     (30, 50,), (10, 10, 10,)], 'solver': ['adam', 'sgd']}
 # using f1 for unbalanced classes.
 clf = GridSearchCV(MLPClassifier(max_iter=200),
                    param_grid=param_grid, scoring='f1_macro')
 clf = clf.fit(X_train, y_train)
+f.write("\n\n------------------Top MLP: " + str(clf.best_params_) + "---------------\n")
 f.write("\nBest Parameters: {}".format(clf.best_params_))
 topMLPPredictions = clf.predict(X_test)
 
@@ -363,10 +362,7 @@ for x in range(10):
     TMLPWeightedList.append(
         f1_score(y_test, topMLPPredictions, average='weighted'))
 
-f.write("\n\n---------- Top MLP ----------\n")
-f.write("\nTop MLP Accuracy List: {}".format(TMLPAccuracyList))
-f.write("\nTop MLP Macro-Average F1 List: {}".format(TMLPMacroList))
-f.write("\nTop MLP Weighted-Average F1 List: {}".format(TMLPWeightedList))
+f.write("\n\n---------- Top MLP 10 trials ----------\n")
 f.write("\nAverage accuracy for 10 best MLP fits:" +
         str(statistics.mean(TMLPAccuracyList)))
 f.write("\nStandard deviation of accuracy for best MLP fits:" +
