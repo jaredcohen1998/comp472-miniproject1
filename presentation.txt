@@ -1,7 +1,7 @@
 1) An analysis of the initial dataset given on Moodle. If there is anything particular about these datasets
 that might have an impact on the performance of some models, explain it.
 
-A: For the bbc dataset, having a large variation in the amount of articles per category can have an impact on performance. We want a large enough dataset per category to train our model. Luckily, this is a non issue as seen in bbc-distribution.pdf. This is however an issue in the drug dataset, where drugY is seen much more than the others. This can impact performance of our model
+A: For the datasets, having a large variation in the amount of articles per category can have an impact on performance. We want a large enough dataset per category to train our model, with each class having roughly the same amount of data seen. Luckily, this is a non issue in the bbc dataset (as seen in bbc-distribution.pdf). This is however an issue in the drug dataset, where drugY is seen much more than the others. This can have an impact on performance on our model.
 
 
 
