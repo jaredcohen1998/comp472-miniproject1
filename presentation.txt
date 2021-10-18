@@ -1,7 +1,9 @@
 1) An analysis of the initial dataset given on Moodle. If there is anything particular about these datasets
 that might have an impact on the performance of some models, explain it.
 
-For the bbc dataset, having a large variation in the amount of articles per category can have an impact on performance. We want a large enough dataset per category to train our model. Luckily, this is a non issue as seen in bbc-distribution.pdf. This is however an issue in the drug dataset, where drugY is seen much more than the others. This can impact performance of our model
+A: For the bbc dataset, having a large variation in the amount of articles per category can have an impact on performance. We want a large enough dataset per category to train our model. Luckily, this is a non issue as seen in bbc-distribution.pdf. This is however an issue in the drug dataset, where drugY is seen much more than the others. This can impact performance of our model
+
+
 
 2) An analysis of the results of all the models with the data sets. In particular, compare and contrast the
 performance of each model with one another, and with the datasets. Please note that your presentation
@@ -10,8 +12,10 @@ you should also analyse them (i.e. explain why some metric seems more appropriat
 why your model did not do as well as expected. Tables, graphs and contingency tables to back up
 your claims would be very welcome here.
 
-ANSWER HERE
+A: ANSWER HERE
+
+
 
 3) In the case of team work, a description of the responsibilities and contributions of each team member
 
-ANSWER HERE
+A: We all worked on it an equal amount for both task 1 and task 2. We should hop in voice/video calls and all contribute together. In these calls, one person would share their screen and actually write the code to push to Github.
