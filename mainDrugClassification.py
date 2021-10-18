@@ -56,7 +56,7 @@ def plot_bar_graph(data):
     plt.xlabel("Drug Type")
     plt.ylabel("Number of Occurrences")
     plt.show()
-    fig.savefig('Drug-distribution.pdf', dpi=fig.dpi)
+    fig.savefig('drug-distribution.pdf', dpi=fig.dpi)
 
 
 def split_dataset(X, y, randomstate):

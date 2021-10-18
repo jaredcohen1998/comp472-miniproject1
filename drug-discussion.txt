@@ -1,0 +1,4 @@
+Redo steps 6, 10 times for each model and append the average accuracy, average macro-average F1, average weighted-average F1 as well as the standard deviation for the accuracy, the standard deviation
+of the macro-average F1, and the standard deviation of the weighted-average F1 at the end of the file
+drugs-performance.txt. Does the same model give you the same performance every time? Explain in a
+plain text file called drugs-discussion.txt. A 1 or 2 paragraph discussion is expected.

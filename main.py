@@ -43,7 +43,7 @@ def plot_bar_graph(basepath, list_of_files):
     plt.xlabel("Classes")
     plt.ylabel("Number of articles")
     plt.show()
-    fig.savefig('BBC-distribution.pdf', dpi=fig.dpi)
+    fig.savefig('bbc-distribution.pdf', dpi=fig.dpi)
 
 # Task 1 #3
 
