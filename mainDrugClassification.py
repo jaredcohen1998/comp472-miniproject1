@@ -94,7 +94,7 @@ predicted = nb.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
         confusion_matrix(y_test, predicted))
 f.write("\n\nClassification Report:\n%s" %
-        classification_report(y_test, predicted, zero_division=1))
+        classification_report(y_test, predicted, zero_division=0))
 f.write("\nMicro F1-Score: %f" %
         f1_score(y_test, predicted, average='micro'))
 f.write("\nMacro F1-Score: %f" % f1_score(y_test, predicted, average='macro'))
@@ -139,7 +139,7 @@ decisionTreePredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
         confusion_matrix(y_test, decisionTreePredictions))
 f.write("\n\nClassification Report:\n%s" %
-        classification_report(y_test, decisionTreePredictions, zero_division=1))
+        classification_report(y_test, decisionTreePredictions, zero_division=0))
 f.write("\nMacro F1-Score: %f" %
         f1_score(y_test, decisionTreePredictions, average='macro'))
 f.write("\nWeighted F1-Score: %f" %
@@ -196,7 +196,7 @@ topDTPredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
         confusion_matrix(y_test, topDTPredictions))
 f.write("\n\nClassification Report:\n%s" % classification_report(
-    y_test, topDTPredictions, zero_division=1))
+    y_test, topDTPredictions, zero_division=0))
 f.write("\nMacro F1-Score: " %
         f1_score(y_test, topDTPredictions, average='macro'))
 f.write("\nWeighted F1-Score: " %
@@ -241,7 +241,7 @@ perceptronPredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
         confusion_matrix(y_test, perceptronPredictions))
 f.write("\n\nClassification Report:\n%s" % classification_report(
-    y_test, perceptronPredictions, zero_division=1))
+    y_test, perceptronPredictions, zero_division=0))
 f.write("\nMacro F1-Score: %f" %
         f1_score(y_test, perceptronPredictions, average='macro'))
 f.write("\nWeighted F1-Score: %f" %
@@ -265,7 +265,7 @@ for x in range(10):
     PERWeightedList.append(
         f1_score(y_test, perceptronPredictions, average='weighted'))
 
-f.write("\n\n---------- Perceptron Try ----------\n")
+f.write("\n\n---------- Perceptron ----------\n")
 f.write("\nAverage accuracy for 10  perceptron fits:" +
         str(statistics.mean(PERAccuracyList)))
 f.write("\nStandard deviation of accuracy for perceptron fits:" +
@@ -286,7 +286,7 @@ clf = MLPClassifier(random_state=0, solver='sgd',
 MLPPredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" % confusion_matrix(y_test, MLPPredictions))
 f.write("\n\nClassification Report:\n%s" %
-        classification_report(y_test, MLPPredictions, zero_division=1))
+        classification_report(y_test, MLPPredictions, zero_division=0))
 f.write("\nMacro F1-Score: %f" %
         f1_score(y_test, MLPPredictions, average='macro'))
 f.write("\nWeighted F1-Score: %f" %
@@ -309,7 +309,7 @@ for x in range(10):
     MLPWeightedList.append(
         f1_score(y_test, MLPPredictions, average='weighted'))
 
-f.write("\n\n---------- Base MLP Try ----------\n")
+f.write("\n\n---------- Base MLP ----------\n")
 f.write("\nAverage accuracy for 10  MLP fits:" +
         str(statistics.mean(MLPAccuracyList)))
 f.write("\nStandard deviation of accuracy for MLP fits:" +
@@ -338,7 +338,7 @@ topMLPPredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
         confusion_matrix(y_test, topMLPPredictions))
 f.write("\n\nClassification Report:\n%s" % classification_report(
-    y_test, topMLPPredictions, zero_division=1))
+    y_test, topMLPPredictions, zero_division=0))
 f.write("\nMacro F1-Score: %f" %
         f1_score(y_test, topMLPPredictions, average='macro'))
 f.write("\nWeighted F1-Score: %f" %
@@ -363,7 +363,7 @@ for x in range(10):
     TMLPWeightedList.append(
         f1_score(y_test, topMLPPredictions, average='weighted'))
 
-f.write("\n\n---------- Top MLP Try ----------\n")
+f.write("\n\n---------- Top MLP ----------\n")
 f.write("\nTop MLP Accuracy List: {}".format(TMLPAccuracyList))
 f.write("\nTop MLP Macro-Average F1 List: {}".format(TMLPMacroList))
 f.write("\nTop MLP Weighted-Average F1 List: {}".format(TMLPWeightedList))
