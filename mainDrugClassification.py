@@ -107,6 +107,7 @@ nbWeightedList = []
 
 print("Generating Guassian Naive Bayes performance report...")
 for x in range(10):
+
     nb = GaussianNB()
     nb.fit(X_train, y_train)
     predicted = nb.predict(X_test)
@@ -131,7 +132,7 @@ f.write("\nStandard deviation of weighted F1-Score for 10 Gaussian NB fits:" +
 
 # b
 f.write("\n\n------------------Base Decision Tree Default Parameters---------------\n")
-clf = DecisionTreeClassifier(random_state=0)
+clf = DecisionTreeClassifier()
 clf = clf.fit(X_train, y_train)
 decisionTreePredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
@@ -152,7 +153,7 @@ DTWeightedList = []
 
 print("Generating Base Decision Tree Classifier performance report...")
 for x in range(10):
-    clf = DecisionTreeClassifier(random_state=0)
+    clf = DecisionTreeClassifier()
     clf = clf.fit(X_train, y_train)
     decisionTreePredictions = clf.predict(X_test)
 
@@ -188,7 +189,7 @@ clf = GridSearchCV(DecisionTreeClassifier(),
 clf = clf.fit(X_train, y_train)
 f.write("\n\n------------------Top Decision Tree: " + str(clf.best_params_) + "---------------\n")
 f.write("\nBest Parameters: {}".format(clf.best_params_))
-bestTDT = DecisionTreeClassifier(random_state=0)
+bestTDT = DecisionTreeClassifier()
 bestTDT.set_params(**clf.best_params_)
 topDTPredictions = clf.predict(X_test)
 
@@ -234,7 +235,7 @@ f.write("\nStandard deviation of weighted F1-Score for 10 best decision tree fit
 
 # d PER
 f.write("\n\n------------------ Perceptron Default Parameters ---------------\n")
-clf = Perceptron(random_state=0)
+clf = Perceptron()
 clf = clf.fit(X_train, y_train)
 perceptronPredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" %
@@ -254,7 +255,7 @@ PERWeightedList = []
 
 print("Generating Perceptron performance report...")
 for x in range(10):
-    clf = Perceptron(random_state=0)
+    clf = Perceptron()
     clf = clf.fit(X_train, y_train)
     perceptronPredictions = clf.predict(X_test)
     PERAccuracyList.append(
@@ -280,7 +281,7 @@ f.write("\nStandard deviation of weighted F1-Score for 10 perceptron fits:" +
 
 # e base-MLP
 f.write("\n\n------------------ Base-MLP:  {'activation': 'logistic', 'hidden_layer_sizes': (100,), 'solver': 'sgd', }---------------\n")
-clf = MLPClassifier(random_state=0, solver='sgd',
+clf = MLPClassifier(solver='sgd',
                     activation='logistic', max_iter=200).fit(X_train, y_train)
 MLPPredictions = clf.predict(X_test)
 f.write("\n\nConfusion Matrix:\n%s" % confusion_matrix(y_test, MLPPredictions))
@@ -299,7 +300,7 @@ MLPWeightedList = []
 
 print("Generating Base MLP performance report...")
 for x in range(10):
-    clf = MLPClassifier(random_state=0, solver='sgd',
+    clf = MLPClassifier(solver='sgd',
                         activation='logistic', max_iter=200).fit(X_train, y_train)
     MLPPredictions = clf.predict(X_test)
 

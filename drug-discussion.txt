@@ -1,4 +1,8 @@
-Redo steps 6, 10 times for each model and append the average accuracy, average macro-average F1, average weighted-average F1 as well as the standard deviation for the accuracy, the standard deviation
-of the macro-average F1, and the standard deviation of the weighted-average F1 at the end of the file
-drugs-performance.txt. Does the same model give you the same performance every time? Explain in a
-plain text file called drugs-discussion.txt. A 1 or 2 paragraph discussion is expected.
+The highest performing classifier for this data set was the decision tree classifiers, which were able to consistently get 98%-100% accuracy depending on the split of the data.
+The worst performing classifiers for this data set was the perceptron and base-MLP classifiers, which were unable to consistently predict that a drug was of class A, B, or C likely due to the unbalanced nature of the data set.
+The best MLP classifier significantly outclassed the base MLP classifier showing the benefit of finding better hyper-parameters for a classifier.
+
+Running the classifiers ten times, with the same data split, would result in zero standard deviation for the gaussian NB, decision tree, and perceptron classifiers, meaning that the outcome would be the same each time.
+The MLP would have a none-zero standard deviation meaning there is some change between trials, likely due to the training data being shuffled for MLP classifiers. (It is also shuffled for Perceptron classifier, but the results likely do not deviate due to lower complexity)
+It is important to note that we would see larger standard deviations if we were to resplit the data set for each run, but since the exact same input data is used, the deviations for the first four classes are zero, and the deviation for the MLP are low.
+

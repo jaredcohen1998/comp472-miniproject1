@@ -5,35 +5,35 @@
 
 Confusion Matrix:
 [[ 6  0  0  0  0]
- [ 0  7  0  0  0]
- [ 0  0  2  0  0]
- [ 0  0  0  8  0]
- [ 5  1  3  5 13]]
+ [ 2  0  0  0  0]
+ [ 0  0  6  0  0]
+ [ 0  0  0 16  0]
+ [ 5  2  2  2  9]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-       drugA       0.55      1.00      0.71         6
-       drugB       0.88      1.00      0.93         7
-       drugC       0.40      1.00      0.57         2
-       drugX       0.62      1.00      0.76         8
-       drugY       1.00      0.48      0.65        27
+       drugA       0.46      1.00      0.63         6
+       drugB       0.00      0.00      0.00         2
+       drugC       0.75      1.00      0.86         6
+       drugX       0.89      1.00      0.94        16
+       drugY       1.00      0.45      0.62        20
 
-    accuracy                           0.72        50
-   macro avg       0.69      0.90      0.72        50
-weighted avg       0.84      0.72      0.71        50
+    accuracy                           0.74        50
+   macro avg       0.62      0.69      0.61        50
+weighted avg       0.83      0.74      0.73        50
 
-Macro F1-Score: 0.724510
-Weighted F1-Score: 0.711134
-Accuracy Score: 0.720000
+Macro F1-Score: 0.610118
+Weighted F1-Score: 0.728099
+Accuracy Score: 0.740000
 
 ---------- Guassian NB 10 Trials ----------
 
-Average accuracy for 10 Gaussian NB fits:0.72
+Average accuracy for 10 Gaussian NB fits:0.74
 Standard deviation of accuracy for 10 Gaussian NB fits:0.0
-Average macro F1-Score for 10 Gaussian NB fits:0.7245098039215686
+Average macro F1-Score for 10 Gaussian NB fits:0.6101175860543855
 Standard deviation of macro F1-Score for 10 Gaussian NB fits:0.0
-Average weighted F1-Score for 10 Gaussian NB fits:0.7111344537815125
+Average weighted F1-Score for 10 Gaussian NB fits:0.7280989491985542
 Standard deviation of weighted F1-Score for 10 Gaussian NB fits:0.0
 
 ------------------Base Decision Tree Default Parameters---------------
@@ -41,35 +41,35 @@ Standard deviation of weighted F1-Score for 10 Gaussian NB fits:0.0
 
 Confusion Matrix:
 [[ 6  0  0  0  0]
- [ 0  7  0  0  0]
- [ 0  0  2  0  0]
- [ 0  0  0  8  0]
- [ 0  0  0  0 27]]
+ [ 1  1  0  0  0]
+ [ 0  0  6  0  0]
+ [ 0  0  0 16  0]
+ [ 0  0  0  0 20]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-       drugA       1.00      1.00      1.00         6
-       drugB       1.00      1.00      1.00         7
-       drugC       1.00      1.00      1.00         2
-       drugX       1.00      1.00      1.00         8
-       drugY       1.00      1.00      1.00        27
+       drugA       0.86      1.00      0.92         6
+       drugB       1.00      0.50      0.67         2
+       drugC       1.00      1.00      1.00         6
+       drugX       1.00      1.00      1.00        16
+       drugY       1.00      1.00      1.00        20
 
-    accuracy                           1.00        50
-   macro avg       1.00      1.00      1.00        50
-weighted avg       1.00      1.00      1.00        50
+    accuracy                           0.98        50
+   macro avg       0.97      0.90      0.92        50
+weighted avg       0.98      0.98      0.98        50
 
-Macro F1-Score: 1.000000
-Weighted F1-Score: 1.000000
-Accuracy Score: 1.000000
+Macro F1-Score: 0.917949
+Weighted F1-Score: 0.977436
+Accuracy Score: 0.980000
 
 ---------- Base Decision Tree 10 Trials ----------
 
-Average accuracy for 10 decision tree fits:1.0
+Average accuracy for 10 decision tree fits:0.98
 Standard deviation of accuracy for decision tree fits:0.0
-Average macro F1-Score for 10 decision tree fits:1.0
+Average macro F1-Score for 10 decision tree fits:0.9179487179487179
 Standard deviation of macro F1-Score for 10 decision tree fits:0.0
-Average weighted F1-Score for 10 decision tree fits:1.0
+Average weighted F1-Score for 10 decision tree fits:0.9774358974358975
 Standard deviation of weighted F1-Score for 10 decision tree fits:0.0
 
 ------------------Top Decision Tree: {'criterion': 'gini', 'max_depth': 4, 'min_samples_split': 3}---------------
@@ -78,142 +78,142 @@ Best Parameters: {'criterion': 'gini', 'max_depth': 4, 'min_samples_split': 3}
 
 Confusion Matrix:
 [[ 6  0  0  0  0]
- [ 0  7  0  0  0]
- [ 0  0  2  0  0]
- [ 0  0  0  8  0]
- [ 0  0  0  0 27]]
+ [ 1  1  0  0  0]
+ [ 0  0  6  0  0]
+ [ 0  0  0 16  0]
+ [ 0  0  0  0 20]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-       drugA       1.00      1.00      1.00         6
-       drugB       1.00      1.00      1.00         7
-       drugC       1.00      1.00      1.00         2
-       drugX       1.00      1.00      1.00         8
-       drugY       1.00      1.00      1.00        27
+       drugA       0.86      1.00      0.92         6
+       drugB       1.00      0.50      0.67         2
+       drugC       1.00      1.00      1.00         6
+       drugX       1.00      1.00      1.00        16
+       drugY       1.00      1.00      1.00        20
 
-    accuracy                           1.00        50
-   macro avg       1.00      1.00      1.00        50
-weighted avg       1.00      1.00      1.00        50
+    accuracy                           0.98        50
+   macro avg       0.97      0.90      0.92        50
+weighted avg       0.98      0.98      0.98        50
 
 Macro F1-Score: 
 Weighted F1-Score: 
-Accuracy Score: 1.000000
+Accuracy Score: 0.980000
 
 ---------- Top Decision Tree 10 Trials ----------
 
-Average accuracy for 10 best decision tree fits:1.0
+Average accuracy for 10 best decision tree fits:0.98
 Standard deviation of accuracy for best decision tree fits:0.0
-Average macro F1-Score for 10 best decision tree fits:1.0
+Average macro F1-Score for 10 best decision tree fits:0.9179487179487179
 Standard deviation of macro F1-Score for 10 best decision tree fits:0.0
-Average weighted F1-Score for 10 best decision tree fits:1.0
+Average weighted F1-Score for 10 best decision tree fits:0.9774358974358975
 Standard deviation of weighted F1-Score for 10 best decision tree fits:0.0
 
 ------------------ Perceptron Default Parameters ---------------
 
 
 Confusion Matrix:
-[[ 0  0  0  4  2]
- [ 0  0  0  7  0]
- [ 0  0  0  2  0]
- [ 0  0  0  8  0]
- [ 0  0  0  4 23]]
+[[ 0  0  0  0  6]
+ [ 0  2  0  0  0]
+ [ 0  2  0  0  4]
+ [ 0  5  0  0 11]
+ [ 0  0  0  0 20]]
 
 Classification Report:
               precision    recall  f1-score   support
 
        drugA       0.00      0.00      0.00         6
-       drugB       0.00      0.00      0.00         7
-       drugC       0.00      0.00      0.00         2
-       drugX       0.32      1.00      0.48         8
-       drugY       0.92      0.85      0.88        27
+       drugB       0.22      1.00      0.36         2
+       drugC       0.00      0.00      0.00         6
+       drugX       0.00      0.00      0.00        16
+       drugY       0.49      1.00      0.66        20
 
-    accuracy                           0.62        50
-   macro avg       0.25      0.37      0.27        50
-weighted avg       0.55      0.62      0.56        50
+    accuracy                           0.44        50
+   macro avg       0.14      0.40      0.20        50
+weighted avg       0.20      0.44      0.28        50
 
-Macro F1-Score: 0.273893
-Weighted F1-Score: 0.555268
-Accuracy Score: 0.620000
+Macro F1-Score: 0.203875
+Weighted F1-Score: 0.276841
+Accuracy Score: 0.440000
 
 ---------- Perceptron 10 trials ----------
 
-Average accuracy for 10  perceptron fits:0.62
+Average accuracy for 10  perceptron fits:0.44
 Standard deviation of accuracy for perceptron fits:0.0
-Average macro F1-Score for 10  perceptron fits:0.2738927738927739
+Average macro F1-Score for 10  perceptron fits:0.2038748137108793
 Standard deviation of macro F1-Score for 10  perceptron fits:0.0
-Average weighted F1-Score for 10  perceptron fits:0.5552680652680653
+Average weighted F1-Score for 10  perceptron fits:0.2768405365126676
 Standard deviation of weighted F1-Score for 10 perceptron fits:0.0
 
 ------------------ Base-MLP:  {'activation': 'logistic', 'hidden_layer_sizes': (100,), 'solver': 'sgd', }---------------
 
 
 Confusion Matrix:
-[[ 0  0  0  2  4]
- [ 0  0  0  7  0]
+[[ 0  0  0  0  6]
  [ 0  0  0  2  0]
- [ 0  0  0  8  0]
- [ 0  0  0  2 25]]
+ [ 0  0  0  2  4]
+ [ 0  0  0  5 11]
+ [ 0  0  0  0 20]]
 
 Classification Report:
               precision    recall  f1-score   support
 
        drugA       0.00      0.00      0.00         6
-       drugB       0.00      0.00      0.00         7
-       drugC       0.00      0.00      0.00         2
-       drugX       0.38      1.00      0.55         8
-       drugY       0.86      0.93      0.89        27
+       drugB       0.00      0.00      0.00         2
+       drugC       0.00      0.00      0.00         6
+       drugX       0.56      0.31      0.40        16
+       drugY       0.49      1.00      0.66        20
 
-    accuracy                           0.66        50
-   macro avg       0.25      0.39      0.29        50
-weighted avg       0.53      0.66      0.57        50
+    accuracy                           0.50        50
+   macro avg       0.21      0.26      0.21        50
+weighted avg       0.37      0.50      0.39        50
 
-Macro F1-Score: 0.288916
-Weighted F1-Score: 0.570419
-Accuracy Score: 0.660000
+Macro F1-Score: 0.211148
+Weighted F1-Score: 0.390295
+Accuracy Score: 0.500000
 
 ---------- Base MLP 10 trials ----------
 
-Average accuracy for 10  MLP fits:0.66
-Standard deviation of accuracy for MLP fits:0.0
-Average macro F1-Score for 10  MLP fits:0.2889162561576355
-Standard deviation of macro F1-Score for 10  MLP fits:0.0
-Average weighted F1-Score for 10 MLP fits:0.5704187192118226
-Standard deviation of weighted F1-Score for 10  MLP fits:0.0
+Average accuracy for 10  MLP fits:0.512
+Standard deviation of accuracy for MLP fits:0.03293090409394259
+Average macro F1-Score for 10  MLP fits:0.21866156362618552
+Standard deviation of macro F1-Score for 10  MLP fits:0.021955092761230106
+Average weighted F1-Score for 10 MLP fits:0.4030805716071167
+Standard deviation of weighted F1-Score for 10  MLP fits:0.03704560156120285
 
 ------------------Top MLP: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}---------------
 
 Best Parameters: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
 
 Confusion Matrix:
-[[ 4  0  0  2  0]
- [ 0  6  0  0  1]
- [ 0  0  2  0  0]
- [ 0  0  0  8  0]
- [ 0  1  0  1 25]]
+[[ 6  0  0  0  0]
+ [ 1  1  0  0  0]
+ [ 0  0  0  5  1]
+ [ 0  0  0 16  0]
+ [ 0  0  0  0 20]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-       drugA       1.00      0.67      0.80         6
-       drugB       0.86      0.86      0.86         7
-       drugC       1.00      1.00      1.00         2
-       drugX       0.73      1.00      0.84         8
-       drugY       0.96      0.93      0.94        27
+       drugA       0.86      1.00      0.92         6
+       drugB       1.00      0.50      0.67         2
+       drugC       0.00      0.00      0.00         6
+       drugX       0.76      1.00      0.86        16
+       drugY       0.95      1.00      0.98        20
 
-    accuracy                           0.90        50
-   macro avg       0.91      0.89      0.89        50
-weighted avg       0.92      0.90      0.90        50
+    accuracy                           0.86        50
+   macro avg       0.71      0.70      0.69        50
+weighted avg       0.77      0.86      0.80        50
 
-Macro F1-Score: 0.888529
-Weighted F1-Score: 0.900171
-Accuracy Score: 0.900000
+Macro F1-Score: 0.686044
+Weighted F1-Score: 0.804437
+Accuracy Score: 0.860000
 
 ---------- Top MLP 10 trials ----------
 
-Average accuracy for 10 best MLP fits:0.904
-Standard deviation of accuracy for best MLP fits:0.05232377832092954
-Average macro F1-Score for 10 best MLP fits:0.8804805979281682
-Standard deviation of macro F1-Score for 10 best MLP fits:0.08047226310521761
-Average weighted F1-Score for 10 best MLP fits:0.9000732207548064
-Standard deviation of weighted F1-Score for 10 best MLP fits:0.0594945931775247
+Average accuracy for 10 best MLP fits:0.88
+Standard deviation of accuracy for best MLP fits:0.06863753427324663
+Average macro F1-Score for 10 best MLP fits:0.7385139089444585
+Standard deviation of macro F1-Score for 10 best MLP fits:0.14983532390933116
+Average weighted F1-Score for 10 best MLP fits:0.8462071172329222
+Standard deviation of weighted F1-Score for 10 best MLP fits:0.09431897381959466
